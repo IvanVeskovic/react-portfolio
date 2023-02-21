@@ -1,0 +1,130 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.nav {
+    &__container {
+        @include rowStyles;
+        padding: 20px 0;
+        display: flex;
+        align-items: center;
+    }
+
+    &__logo {
+        color: $c-grey;
+        font-size: 22px;
+        font-weight: 700;
+        font-style: italic;
+        position: relative;
+        display: inline-block;
+        padding: 5px 0;
+        text-decoration: none;
+        cursor: pointer;
+
+        &:before,
+        &:after {
+            content: '';
+            height: 3px;
+            width: 60px;
+            position: absolute;
+            background-color: $c-orange-primary;
+            transition: left 0.3s ease-out, right 0.3s ease-out;
+        }
+
+        &:before {
+            top: 0;
+            right: 0;
+        }
+
+        &:after {
+            bottom: 0;
+            left: 0;
+        }
+
+        &:hover {
+            &::before {
+                right: calc(100% - 60px);
+            }
+
+            &::after {
+                left: calc(100% - 60px);
+            }
+        }
+    }
+
+    &__theme {
+        height: 45px;
+        width: 63px;
+        border: 3px solid $c-orange-primary;
+        display: inline-block;
+        margin-left: auto;
+        border-radius: 50px;
+        background-color: rgba($c-orange-primary, 0.5);
+        display: flex;
+        align-items: center;
+        padding-inline: 3px;
+        transition: background-color 0.75s ease;
+        cursor: pointer;
+
+        &-icon {
+            background-color: $c-white;
+            height: 35px;
+            width: 35px;
+            border-radius: 50%;
+            position: relative;
+            padding: 5px;
+            transition: all 0.75s ease;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                height: 80%;
+                width: 80%;
+                background-image: url('/images/theme-light.png');
+                -o-object-fit: contain;
+                object-fit: contain;
+                @include backgroundProperty(center, contain);
+                transition: background-image 0.75s ease;
+            }
+        }
+
+        &--dark {
+            background-color: $c-grey;
+
+            .nav__theme-icon {
+                transform: translateX(17px) rotate(360deg);
+
+                &::before {
+                    background-image: url('/images/theme-dark.png');
+                }
+            }
+        }
+    }
+
+    &__button {
+        height: 60px;
+        width: 60px;
+        background-color: $c-white;
+        border-radius: 50px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-left: 40px;
+        cursor: pointer;
+
+        span {
+            width: 35px;
+            height: 5px;
+            background-color: $c-grey;
+            display: inline-block;
+
+            &:nth-child(2) {
+                margin: 5px 0;
+            }
+        }
+    }
+}

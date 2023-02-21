@@ -1,0 +1,11 @@
+@mixin rowStyles {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+@mixin backgroundProperty($position, $size) {
+    background-repeat: no-repeat;
+    background-position: $position;
+    background-size: $size;
+}
