@@ -1,5 +1,5 @@
 import './main.scss';
-import Navigation from './components/navigation/Navigation.jsx';
+import Navigation from './components/navigation/Navigation';
 
 
 function App() {
@@ -15,7 +15,6 @@ function App() {
   return (
     <div className="App">
         <Navigation />
-        Preparing
     </div>
   )
 }
