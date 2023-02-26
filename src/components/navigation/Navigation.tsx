@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './navigation.scss';
+import './_navigation.scss';
 
 const Navigation = () => {
     const [isDarkTheme, setIsDarkTheme] = useState(false);
@@ -8,7 +8,9 @@ const Navigation = () => {
     return (
         <nav className={`nav ${showFullScreenNavigation ? 'nav__full-screen' : ''}`}>
             <div className="nav__container">
-                <a href='#' className="nav__logo">IvanVeskovic</a>
+                <a href="#" className="nav__logo">
+                    <img src="/images/logo.svg" alt="Logo" className='nav__logo' title='Ivan Veskovic' />
+                </a>
                 <div className={`nav__theme ${isDarkTheme && 'nav__theme--dark'}`} onClick={() => setIsDarkTheme(!isDarkTheme)}>
                     <div className="nav__theme-icon"></div>
                 </div>

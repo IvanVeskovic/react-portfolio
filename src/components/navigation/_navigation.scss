@@ -2,55 +2,22 @@
 @import '../../styles/variables';
 
 .nav {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    margin-bottom: 50px;
+
     &__container {
         @include rowStyles;
-        padding: 20px 0;
+        padding: 15px 0;
         display: flex;
         align-items: center;
         position: relative;
     }
 
     &__logo {
-        color: $c-grey;
-        font-size: 22px;
-        font-weight: 700;
-        font-style: italic;
-        position: relative;
-        display: inline-block;
-        padding: 5px 0;
-        text-decoration: none;
-        cursor: pointer;
-        z-index: 0;
-        position: relative;
-
-        &:before,
-        &:after {
-            content: '';
-            height: 3px;
-            width: 60px;
-            position: absolute;
-            background-color: $c-orange-primary;
-            transition: left 0.3s ease-out, right 0.3s ease-out;
-        }
-
-        &:before {
-            top: 0;
-            right: 0;
-        }
-
-        &:after {
-            bottom: 0;
-            left: 0;
-        }
-
-        &:hover {
-            &::before {
-                right: calc(100% - 60px);
-            }
-
-            &::after {
-                left: calc(100% - 60px);
-            }
+        img {
+            height: 50px;
+            object-fit: contain;
+            display: inline-block;
         }
     }
 
@@ -109,8 +76,8 @@
     }
 
     &__button {
-        height: 60px;
-        width: 60px;
+        height: 50px;
+        width: 50px;
         background-color: $c-white;
         border-radius: 50px;
         box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.25);
@@ -120,23 +87,25 @@
         flex-direction: column;
         margin-left: 40px;
         cursor: pointer;
-        z-index: 2;
+        z-index: 100;
         transition: all 0.3s ease;
 
-        &:hover {
-            transform: translateY(-3px);
-            box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.25);
-        }
+        @media (hover: hover) {
+            &:hover {
+                transform: translateY(-3px);
+                box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.25);
+            }
 
-        &:active {
-            transform: translateY(-2px);
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+            &:active {
+                transform: translateY(-2px);
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+            }
         }
 
         span {
             border-radius: 3px;
-            width: 35px;
-            height: 5px;
+            width: 30px;
+            height: 3px;
             background-color: $c-grey;
             display: inline-block;
             transition: all 0.3s ease;
@@ -158,7 +127,7 @@
         background-image: linear-gradient(247.13deg, #d03c3c 0%, #d03c3c 50%, #fab464 100%);
         z-index: 0;
         transition: all 0.4s ease-in-out;
-        z-index: 1;
+        z-index: 99;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -233,9 +202,8 @@
             border-radius: 50px;
             text-decoration: none;
             opacity: 0;
+            transition: background-color 0.2s ease, color 0.2s ease;
             transform: translateX(-100px);
-            // transition: background-color 1s ease, color 1s ease;
-            transition: all 1s ease;
 
             &:hover {
                 background-color: $c-grey;
@@ -254,7 +222,7 @@
                         transform: rotate(45deg);
 
                         left: 0px;
-                        top: 9px;
+                        top: 7px;
                         position: relative;
                     }
 
@@ -266,7 +234,7 @@
                     &:nth-child(3) {
                         transform: rotate(-45deg);
 
-                        bottom: 10px;
+                        bottom: 9px;
                         position: relative;
                         left: 0px;
                     }

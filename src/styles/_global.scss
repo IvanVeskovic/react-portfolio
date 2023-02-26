@@ -1,4 +1,5 @@
 @import './variables';
+@import './mixins';
 
 * {
     margin: 0;
@@ -8,6 +9,32 @@
 
 body {
     color: $c-dark-1;
-    background-color: $c-white;
+    background-color: #fff5ee;
     font-family: $f-primary;
+    position: relative;
+
+    // Delete this after
+    min-height: 3000px;
+
+    &::before,
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 100%;
+        min-height: 1600px;
+        height: 100%;
+        z-index: 1;
+        @include backgroundProperty(center, contain);
+    }
+
+    &::before {
+        background-image: url('/images/shapes/background-shape-1.svg');
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+
+    &::after {
+    }
 }

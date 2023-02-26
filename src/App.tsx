@@ -1,6 +1,8 @@
 import './main.scss';
 import Navigation from './components/navigation/Navigation';
-
+import Banner from './components/banner/Banner';
+import Services from './components/services/Services';
+1
 
 function App() {
   // TODO Create components 
@@ -11,10 +13,12 @@ function App() {
   // 4. Slider item component recent work
   // 5. slider item component skills
   // 6. Approach box component
-  
+
   return (
     <div className="App">
-        <Navigation />
+      <Navigation />
+      <Banner />
+      <Services />
     </div>
   )
 }
