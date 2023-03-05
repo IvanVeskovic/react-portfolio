@@ -1,24 +1,27 @@
 import SectionHeading from "../heading/SectionHeading";
-import RecentSingleWork from "./RecentSingleWork";
-import './recentWorks.scss';
+import './skills.scss';
 import { useRef } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, A11y, EffectFade } from 'swiper';
 
-import { currentWorks } from '../../data/data.json';
+import { skills } from '../../data/data.json';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
+import SingleSkill from "./SingleSkill";
 
 
-export default function RecentWork({ }) {
+
+
+
+export default function Skills() {
     const navigationPrevRef = useRef<HTMLDivElement>(null)
     const navigationNextRef = useRef<HTMLDivElement>(null)
 
     return (
-        <section className="works">
-            <div className="works__header">
-                <SectionHeading title="Recent Work" />
+        <section className="skills">
+            <div className="skills__header">
+                <SectionHeading title="Skills" />
 
                 <div className="arrow-nav">
                     <div ref={navigationPrevRef} className="arrow-nav__prev">
@@ -30,11 +33,11 @@ export default function RecentWork({ }) {
                 </div>
             </div>
 
-            <div className="works__wrapper">
+            <div className="skills__wrapper">
                 <Swiper
                     modules={[Navigation, A11y, EffectFade]}
-                    spaceBetween={100}
-                    slidesPerView={3}
+                    spaceBetween={0}
+                    slidesPerView={6}
                     navigation={{
                         prevEl: navigationPrevRef.current,
                         nextEl: navigationNextRef.current,
@@ -52,14 +55,14 @@ export default function RecentWork({ }) {
 
                 >
                     {
-                        currentWorks.map(work => (
-                            <SwiperSlide key={work.id}>
-                                <RecentSingleWork title={work.title} imgSrc={work.imgSrc} description={work.description} />
+                        skills.map(skill => (
+                            <SwiperSlide key={skill.id}>
+                                <SingleSkill title={skill.title} images={skill.imgSrcs} />
                             </SwiperSlide>
                         ))
                     }
                 </Swiper>
             </div>
-        </section >
+        </section>
     )
 }

@@ -3,6 +3,7 @@ import Navigation from './components/navigation/Navigation';
 import Banner from './components/banner/Banner';
 import Services from './components/services/Services';
 import RecentWork from './components/works/RecentWorks';
+import Skills from './components/skills/Skills';
 1
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
       <Banner />
       <Services />
       <RecentWork />
+      <Skills />
     </div>
   )
 }

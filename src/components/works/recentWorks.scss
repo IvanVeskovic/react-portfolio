@@ -2,7 +2,6 @@
 @import '../../styles/variables';
 
 .works {
-    margin-top: 130px;
     @include rowStyles;
 
     &__header {
