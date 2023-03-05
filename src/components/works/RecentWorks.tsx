@@ -1,19 +1,66 @@
 import SectionHeading from "../heading/SectionHeading";
 import RecentSingleWork from "./RecentSingleWork";
 import './recentWorks.scss';
+import { useRef } from "react";
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, A11y, EffectFade } from 'swiper';
+
+import { currentWorks } from '../../data/works.json';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+
 
 export default function RecentWork({ }) {
+    const navigationPrevRef = useRef<HTMLDivElement>(null)
+    const navigationNextRef = useRef<HTMLDivElement>(null)
+    console.log(currentWorks);
 
     return (
         <div className="works">
-            <SectionHeading title="Recent Work" />
+            <div className="works__header">
+                <SectionHeading title="Recent Work" />
+
+                <div className="arrow-nav">
+                    <div ref={navigationPrevRef} className="arrow-nav__prev">
+                        {"<"}
+                    </div>
+                    <div ref={navigationNextRef} className="arrow-nav__next">
+                        {">"}
+                    </div>
+                </div>
+            </div>
 
             <div className="works__wrapper">
-                <RecentSingleWork title='Project 1' imgSrc='/images/works/project-1.jpg' description="d typesetting industry. Lorem Ipsum has been the industry's" />
-                <RecentSingleWork title='Project 2' imgSrc='/images/works/project-2.jpg' description="d typesetting industry. Lorem Ipsum has been the industry's" />
-                <RecentSingleWork title='Project 3' imgSrc='/images/works/project-3.jpg' description="d typesetting industry. Lorem Ipsum has been the industry's" />
-                <RecentSingleWork title='Project 1' imgSrc='/images/works/project-1.jpg' description="d typesetting industry. Lorem Ipsum has been the industry's" />
+                <Swiper
+                    modules={[Navigation, A11y, EffectFade]}
+                    spaceBetween={100}
+                    slidesPerView={3}
+                    navigation={{
+                        prevEl: navigationPrevRef.current,
+                        nextEl: navigationNextRef.current,
+                    }}
+                    onBeforeInit={(swiper) => {
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                        // @ts-ignore
+                        // eslint-disable-next-line no-param-reassign
+                        swiper.params.navigation.prevEl = navigationPrevRef.current;
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                        // @ts-ignore
+                        // eslint-disable-next-line no-param-reassign
+                        swiper.params.navigation.nextEl = navigationNextRef.current;
+                    }}
+
+                >
+                    {
+                        currentWorks.map(work => (
+                            <SwiperSlide key={work.id}>
+                                <RecentSingleWork title={work.title} imgSrc={work.imgSrc} description={work.description} />
+                            </SwiperSlide>
+                        ))
+                    }
+                </Swiper>
             </div>
-        </div>
+        </div >
     )
 }

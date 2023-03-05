@@ -1,0 +1,58 @@
+{
+    "currentWorks": [
+        {
+            "id": 1,
+            "title": "Project 1",
+            "imgSrc": "/images/works/project-1.jpg",
+            "description": "D typesetting industry. Lorem Ipsum has been the industry's",
+            "githubLink": "#",
+            "liveLink": "#"
+        },
+        {
+            "id": 2,
+            "title": "Project 2",
+            "imgSrc": "/images/works/project-3.jpg",
+            "description": "d typesetting industry. Lorem Ipsum has been the industry's",
+            "githubLink": "#",
+            "liveLink": "#"
+        },
+        {
+            "id": 3,
+            "title": "Project 3",
+            "imgSrc": "/images/works/project-2.jpg",
+            "description": "d typesetting industry. Lorem Ipsum has been the industry's",
+            "githubLink": "#",
+            "liveLink": "#"
+        },
+        {
+            "id": 4,
+            "title": "Project 4",
+            "imgSrc": "/images/works/project-1.jpg",
+            "description": "D typesetting industry. Lorem Ipsum has been the industry's",
+            "githubLink": "#",
+            "liveLink": "#"
+        },
+        {
+            "id": 5,
+            "title": "Project 5",
+            "imgSrc": "/images/works/project-3.jpg",
+            "description": "d typesetting industry. Lorem Ipsum has been the industry's",
+            "githubLink": "#",
+            "liveLink": "#"
+        },
+        {
+            "id": 6,
+            "title": "Project 6",
+            "imgSrc": "/images/works/project-2.jpg",
+            "description": "d typesetting industry. Lorem Ipsum has been the industry's",
+            "githubLink": "#",
+            "liveLink": "#"
+        }
+    ],
+    "skills": [
+        {
+            "title": "react",
+            "imgSec": "/images/skills/react.svg"
+        }
+    ]
+}

@@ -14,3 +14,36 @@
     width: $width;
     height: $height;
 }
+
+@mixin arrowNavigation {
+    display: flex;
+    gap: 15px;
+
+    & > * {
+        @include size(40px);
+        background-color: $c-dark-1;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $c-white;
+        font-size: 35px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        user-select: none;
+
+        &:hover {
+            color: $c-dark-1;
+            background-color: $c-white;
+        }
+    }
+
+    &__prev {
+        padding-right: 2px;
+    }
+
+    &__next {
+        padding-left: 2px;
+    }
+}

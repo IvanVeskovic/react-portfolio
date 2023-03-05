@@ -5,13 +5,16 @@
     margin-top: 130px;
     @include rowStyles;
 
-    &__wrapper {
-        display: grid;
-        grid-auto-flow: column;
-        overflow-x: scroll;
-        grid-column-gap: 50px;
-        padding: 20px 0;
+    &__header {
+        display: flex;
+        align-items: flex-start;
 
+        .heading {
+            flex: 1;
+        }
+    }
+
+    &__wrapper {
         -ms-overflow-style: none; /* IE and Edge */
         scrollbar-width: none; /* Firefox */
 
@@ -20,6 +23,10 @@
             display: none;
         }
     }
+}
+
+.arrow-nav {
+    @include arrowNavigation;
 }
 
 .work {
